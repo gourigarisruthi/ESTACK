@@ -4,7 +4,6 @@ import java.util.Optional;
 
 import org.socialsignin.spring.data.dynamodb.repository.EnableScan;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.scheduling.annotation.EnableScheduling;
 
 import com.spartan.api.stockmarket.entity.Company;
 

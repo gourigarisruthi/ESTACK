@@ -1,7 +1,5 @@
 package com.spartan.api.stockmaket.dto;
 
-import org.apache.catalina.connector.Response;
-
 import com.spartan.api.stockmarket.entity.Company;
 
 

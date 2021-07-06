@@ -15,6 +15,8 @@ public interface CompanyService {
 
 	String companyRegistration(CompanyRequest request);
 
-	CompanyResponse fetcheCompanyDetailByCompanyCode(String companyCode);
+	CompanyResponse fetchCompanyDetailByCompanyCode(String companyCode);
+
+	String DeleteCompanyDetails(String companyCode);
 
 }

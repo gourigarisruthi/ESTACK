@@ -87,7 +87,7 @@ public class CompanyServiceImpl implements CompanyService {
 	}
 
 	@Override
-	public CompanyResponse fetcheCompanyDetailByCompanyCode(String companyCode) {
+	public CompanyResponse fetchCompanyDetailByCompanyCode(String companyCode) {
 		System.out.println(companyCode);
 		log.info(this.getClass().getName(), "Inside fetcheCompanyDetailByCompanyCode method request " + companyCode);
 		CompanyResponse response = new CompanyResponse();
@@ -103,6 +103,23 @@ public class CompanyServiceImpl implements CompanyService {
 			e.printStackTrace();
 		}
 		return response;
+	}
+
+	@Override
+	public String DeleteCompanyDetails(String companyCode) {
+		try {
+			Optional<Company> company =  companyRepository.findByCompanyCode(companyCode);
+			if (company.isPresent()) {
+				companyRepository.delete(company.get());
+			} else {
+				log.info(this.getClass().getName(), "companyRegistration Company Code "+companyCode+" is not available Please provide valid Company Code");
+				return "There is no company available with the Company Code "+companyCode;
+			}
+		}catch(Exception e) {
+			log.error("Exception occured while deleting the company : "+e.getStackTrace());
+			return "Error occured while deleting the company! Please try again later";
+		}
+		return "Deleted Successfully";
 	}
 
 }
