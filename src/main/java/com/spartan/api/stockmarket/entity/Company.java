@@ -11,6 +11,14 @@ import lombok.Data;
 public class Company {
 	
 
+	public String getCompanyCode() {
+		return companyCode;
+	}
+
+	public void setCompanyCode(String companyCode) {
+		this.companyCode = companyCode;
+	}
+
 	@DynamoDBHashKey(attributeName = "company_code")
 	private String companyCode;
 	
