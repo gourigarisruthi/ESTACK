@@ -1,4 +1,4 @@
-package com.stockmarket.api.config;
+package com.stockmarket.config;
 
 import org.socialsignin.spring.data.dynamodb.repository.config.EnableDynamoDBRepositories;
 import org.springframework.beans.factory.annotation.Value;

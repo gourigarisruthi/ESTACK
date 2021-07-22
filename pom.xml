@@ -8,7 +8,7 @@
         <version>2.5.2</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.spartan.api.stockmarket</groupId>
+    <groupId>com.stockmarket</groupId>
     <artifactId>e-stock-market</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>e-stock-market</name>

@@ -1,4 +1,4 @@
-package com.stockmarket.api.config;
+package com.stockmarket.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

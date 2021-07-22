@@ -1,4 +1,4 @@
-package com.stockmarket.api.controller;
+package com.stockmarket.controller;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -18,10 +18,10 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
-import com.stockmaket.api.dto.CompanyRequest;
-import com.stockmarket.api.controller.CompanyController;
-import com.stockmarket.api.service.CompanyService;
-import com.stockmarket.api.stock.EStockMarketApplication;
+import com.stockmarket.EStockMarketApplication;
+import com.stockmarket.controller.CompanyController;
+import com.stockmarket.dto.CompanyRequest;
+import com.stockmarket.service.CompanyService;
 
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes = EStockMarketApplication.class)

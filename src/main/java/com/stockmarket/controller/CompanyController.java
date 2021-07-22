@@ -1,4 +1,4 @@
-package com.stockmarket.api.controller;
+package com.stockmarket.controller;
 
 import java.util.List;
 
@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.stockmaket.api.dto.CompanyRequest;
-import com.stockmaket.api.dto.CompanyResponse;
-import com.stockmarket.api.entity.Company;
-import com.stockmarket.api.service.CompanyService;
+import com.stockmarket.dto.CompanyRequest;
+import com.stockmarket.dto.CompanyResponse;
+import com.stockmarket.entity.Company;
+import com.stockmarket.service.CompanyService;
 
 @RestController
 @RequestMapping("/company")

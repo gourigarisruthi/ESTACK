@@ -1,6 +1,6 @@
-package com.stockmaket.api.dto;
+package com.stockmarket.dto;
 
-import com.stockmarket.api.entity.Company;
+import com.stockmarket.entity.Company;
 
 
 public class CompanyResponse {

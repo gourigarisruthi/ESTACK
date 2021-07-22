@@ -1,14 +1,12 @@
-package com.stockmarket.api.service;
+package com.stockmarket.service;
 
 import java.util.List;
 
-import org.springframework.stereotype.Service;
+import com.stockmarket.dto.CompanyRequest;
+import com.stockmarket.dto.CompanyResponse;
+import com.stockmarket.entity.Company;
 
-import com.stockmaket.api.dto.CompanyRequest;
-import com.stockmaket.api.dto.CompanyResponse;
-import com.stockmarket.api.entity.Company;
 
-@Service
 public interface CompanyService {
 
 	List<Company> getAllCompanies();
