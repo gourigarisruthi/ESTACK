@@ -1,4 +1,4 @@
-package com.spartan.api.stockmarket;
+package com.stockmarket.api;
 
 import org.springframework.context.annotation.Configuration;
 

@@ -1,4 +1,4 @@
-package com.spartan.api.stockmarket.serviceImpl;
+package com.stockmarket.api.serviceImpl;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.times;
@@ -18,12 +18,12 @@ import org.springframework.boot.test.mock.mockito.SpyBean;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.spartan.api.stockmaket.dto.CompanyRequest;
-import com.spartan.api.stockmaket.dto.CompanyResponse;
-import com.spartan.api.stockmarket.entity.Company;
-import com.spartan.api.stockmarket.repository.CompanyRepository;
-import com.spartan.api.stockmarket.service.CompanyServiceImpl;
-import com.spartan.api.stockmarket.stock.EStockMarketApplication;
+import com.stockmaket.api.dto.CompanyRequest;
+import com.stockmaket.api.dto.CompanyResponse;
+import com.stockmarket.api.entity.Company;
+import com.stockmarket.api.repository.CompanyRepository;
+import com.stockmarket.api.service.CompanyServiceImpl;
+import com.stockmarket.api.stock.EStockMarketApplication;
 
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes = EStockMarketApplication.class)
