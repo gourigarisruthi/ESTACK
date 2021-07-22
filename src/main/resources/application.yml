@@ -1,5 +1,13 @@
 server:
      port: 9001
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health,info,prometheus"
+  endpoint:
+    health:
+      show-details: "always"
 amazon:
   dynamodb:
     endpoint: https://dynamodb.us-east-2.amazonaws.com
@@ -14,5 +22,7 @@ spring:
         gsiProjectionType: ALL
         readCapacity: 10
         writeCapacity: 1
+  application:
+    name: stock-market-company
 core:
   ignored-headers: Access-Control-Allow-Credentials, Access-Control-Allow-Origin, Va
