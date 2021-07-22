@@ -12,7 +12,7 @@ import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
 
 @Configuration
-@EnableDynamoDBRepositories(basePackages = "com.spartan.api.stockmarket.repository")
+@EnableDynamoDBRepositories(basePackages = "com.stockmarket.repository")
 public class DynamoDBConfig {
 
 	@Value("${amazon.aws.accesskey}")
