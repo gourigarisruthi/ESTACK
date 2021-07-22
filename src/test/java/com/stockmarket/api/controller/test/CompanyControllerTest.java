@@ -1,4 +1,4 @@
-package com.spartan.api.stockmarket.controller;
+package com.stockmarket.api.controller.test;
 
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -20,9 +20,10 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
-import com.spartan.api.stockmaket.dto.CompanyRequest;
-import com.spartan.api.stockmarket.service.CompanyService;
-import com.spartan.api.stockmarket.stock.EStockMarketApplication;
+import com.stockmaket.api.dto.CompanyRequest;
+import com.stockmarket.api.controller.CompanyController;
+import com.stockmarket.api.service.CompanyService;
+import com.stockmarket.api.stock.EStockMarketApplication;
 
 @RunWith(MockitoJUnitRunner.class)
 @ContextConfiguration(classes = EStockMarketApplication.class)

@@ -1,4 +1,4 @@
-package com.spartan.api.stockmarket.entity;
+package com.stockmarket.api.entity;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;

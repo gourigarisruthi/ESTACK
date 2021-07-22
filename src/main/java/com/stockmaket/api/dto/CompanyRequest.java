@@ -1,4 +1,4 @@
-package com.spartan.api.stockmaket.dto;
+package com.stockmaket.api.dto;
 
 import lombok.ToString;
 

@@ -1,4 +1,4 @@
-package com.spartan.api.stockmarket.service;
+package com.stockmarket.api.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,10 +10,10 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.spartan.api.stockmaket.dto.CompanyRequest;
-import com.spartan.api.stockmaket.dto.CompanyResponse;
-import com.spartan.api.stockmarket.entity.Company;
-import com.spartan.api.stockmarket.repository.CompanyRepository;
+import com.stockmaket.api.dto.CompanyRequest;
+import com.stockmaket.api.dto.CompanyResponse;
+import com.stockmarket.api.entity.Company;
+import com.stockmarket.api.repository.CompanyRepository;
 
 @Service
 public class CompanyServiceImpl implements CompanyService {

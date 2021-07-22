@@ -1,12 +1,12 @@
-package com.spartan.api.stockmarket.service;
+package com.stockmarket.api.service;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.spartan.api.stockmaket.dto.CompanyRequest;
-import com.spartan.api.stockmaket.dto.CompanyResponse;
-import com.spartan.api.stockmarket.entity.Company;
+import com.stockmaket.api.dto.CompanyRequest;
+import com.stockmaket.api.dto.CompanyResponse;
+import com.stockmarket.api.entity.Company;
 
 @Service
 public interface CompanyService {

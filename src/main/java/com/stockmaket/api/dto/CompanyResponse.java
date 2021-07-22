@@ -1,6 +1,6 @@
-package com.spartan.api.stockmaket.dto;
+package com.stockmaket.api.dto;
 
-import com.spartan.api.stockmarket.entity.Company;
+import com.stockmarket.api.entity.Company;
 
 
 public class CompanyResponse {

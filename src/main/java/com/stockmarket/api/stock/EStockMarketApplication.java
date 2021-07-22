@@ -1,4 +1,4 @@
-package com.spartan.api.stockmarket.stock;
+package com.stockmarket.api.stock;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,7 +8,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
-@SpringBootApplication(scanBasePackages={"com.spartan.api.stockmarket.*"})
+@SpringBootApplication(scanBasePackages={"com.stockmarket.api.*"})
 @EnableScheduling
 public class EStockMarketApplication {
 
@@ -21,7 +21,7 @@ public class EStockMarketApplication {
       final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
       final CorsConfiguration config = new CorsConfiguration();
       config.setAllowCredentials(true);
-      config.addAllowedOrigin("*");
+      config.addAllowedOrigin("http://localhost:4200/");
       config.addAllowedHeader("*");
       config.addAllowedMethod("OPTIONS");
       config.addAllowedMethod("HEAD");
