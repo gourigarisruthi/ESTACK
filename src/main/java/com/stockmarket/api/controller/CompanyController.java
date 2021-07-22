@@ -46,8 +46,8 @@ public class CompanyController {
 	}
 	
 	@DeleteMapping(value = "/delete/{companyCode}", produces = { MediaType.APPLICATION_JSON_VALUE })
-	public ResponseEntity<String> DeleteCompanyDetails(@PathVariable("companyCode") String companyCode) {
-		return new ResponseEntity<>(companyService.DeleteCompanyDetails(companyCode),HttpStatus.OK);
+	public ResponseEntity<String> deleteCompanyDetails(@PathVariable("companyCode") String companyCode) {
+		return new ResponseEntity<>(companyService.deleteCompanyDetails(companyCode),HttpStatus.OK);
 	}
 	
 }

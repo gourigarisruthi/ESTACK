@@ -17,6 +17,6 @@ public interface CompanyService {
 
 	CompanyResponse fetchCompanyDetailByCompanyCode(String companyCode);
 
-	String DeleteCompanyDetails(String companyCode);
+	String deleteCompanyDetails(String companyCode);
 
 }

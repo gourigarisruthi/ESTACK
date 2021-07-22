@@ -2,15 +2,15 @@ server:
      port: 9001
 amazon:
   dynamodb:
-    endpoint: http://localhost:8000/
+    endpoint: https://dynamodb.us-east-2.amazonaws.com
   aws:
-    accesskey: default_access_key
-    secretkey: default_secret_key
+    accesskey: AKIA5RLBV4FRNQEXODWX
+    secretkey: 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
 spring:
   data:
     dynamodb:
       entity2ddl:
-        auto: create
+        auto: create-only
         gsiProjectionType: ALL
         readCapacity: 10
         writeCapacity: 1

@@ -36,53 +36,60 @@ public class CompanyServiceImpl implements CompanyService {
 
 	@Override
 	public String companyRegistration(CompanyRequest request) {
-		
+
 		log.info(this.getClass().getName(), "Inside companyRegistration method request " + request.toString());
 		// String message = null;
 		Optional<Company> company = null;
 		if (request.getCompanyCode() != null) {
-			company = companyRepository.findById(request.getCompanyCode());
-			if (company.isPresent()) {
-				log.info(this.getClass().getName(), "Company Code " + request.getCompanyCode()
-						+ " is Already exits. Please try with other Company Code");
-				return "Company Code " + request.getCompanyCode()
-						+ " is Already exits. Please try with other Company Code";
-			} else {
-				if (request.getCeo() == null) {
-					log.info(this.getClass().getName(), "companyRegistration ceo field is null");
-					return "Please Provide the CEO details";
-				}
-				if (request.getCompanyName() == null) {
-					log.info(this.getClass().getName(), "companyRegistration Company Name field is null");
-					return "Please Provide the Company Name";
-				}
-				if (request.getStockExchange() == null) {
-					log.info(this.getClass().getName(), "companyRegistration Stock Exchange field is null");
-					return "Please Provide the Stock Exchange details";
-				}
-				if (request.getTurnOver() == null) {
-					log.info(this.getClass().getName(), "companyRegistration Turn Over field is null");
-					return "Please Provide the Turn Over details";
-				}
-				if (request.getWebsite() == null) {
-					log.info(this.getClass().getName(), "companyRegistration Web site field is null");
-					return "Please Provide the Web site details";
-				}
-				try {
+			try {
+				company = companyRepository.findByCompanyCode(request.getCompanyCode());
+
+				if (company.isPresent() && company.get().getCompanyCode().equalsIgnoreCase(request.getCompanyCode())) {
+					log.info(this.getClass().getName(), "Company Code " + request.getCompanyCode()
+							+ " is Already exits. Please try with other Company Code");
+					return "Company Code " + request.getCompanyCode()
+							+ " is Already exits. Please try with other Company Code";
+				} else {
+					if (request.getCeo() == null) {
+						log.info(this.getClass().getName(), "companyRegistration ceo field is null");
+						return "Please Provide the CEO details";
+					}
+					if (request.getCompanyName() == null) {
+						log.info(this.getClass().getName(), "companyRegistration Company Name field is null");
+						return "Please Provide the Company Name";
+					}
+					if (request.getStockExchange() == null) {
+						log.info(this.getClass().getName(), "companyRegistration Stock Exchange field is null");
+						return "Please Provide the Stock Exchange details";
+					}
+					if (request.getTurnOver() == null) {
+						log.info(this.getClass().getName(), "companyRegistration Turn Over field is null");
+						return "Please Provide the Turn Over details";
+					} else if (request.getTurnOver() <= 10000000) {
+						log.info(this.getClass().getName(), "Company Turn Over should be greater than 10Cr.");
+						return "Company Turn Over should be greater than 10Cr.";
+					}
+					if (request.getWebsite() == null) {
+						log.info(this.getClass().getName(), "companyRegistration Web site field is null");
+						return "Please Provide the Web site details";
+					}
 
 					Company newCompany = new Company();
 					BeanUtils.copyProperties(request, newCompany);
 					companyRepository.save(newCompany);
-				} catch (Exception e) {
 
-					log.error(this.getClass().getName(), "companyRegistration ceo field is null",e);
-					e.printStackTrace();
 				}
+			} catch (Exception e) {
+
+				// log.error(this.getClass().getName(), "companyRegistration ceo field is
+				// null",e);
+				e.printStackTrace();
 			}
 		} else {
 			log.info(this.getClass().getName(), "companyRegistration Company Code field is null");
-			return "Please Provide the Company Code ";
+			return "Please Provide the Company Code";
 		}
+
 		return "SUCCESS";
 	}
 
@@ -92,12 +99,13 @@ public class CompanyServiceImpl implements CompanyService {
 		log.info(this.getClass().getName(), "Inside fetcheCompanyDetailByCompanyCode method request " + companyCode);
 		CompanyResponse response = new CompanyResponse();
 		try {
-			Optional<Company> company =  companyRepository.findByCompanyCode(companyCode);
-			if (company.isPresent()) {
+			Optional<Company> company = companyRepository.findByCompanyCode(companyCode);
+			if (company.isPresent() && company.get().getCompanyCode().equalsIgnoreCase(companyCode)) {
 				response.setCompany(company.get());
 			} else {
 				response.setMessage("Not Available");
-				log.info(this.getClass().getName(), "companyRegistration Company Code "+companyCode+" is not available Please provide valid Company Code");
+				log.info(this.getClass().getName(), "companyRegistration Company Code " + companyCode
+						+ " is not available Please provide valid Company Code");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -106,17 +114,18 @@ public class CompanyServiceImpl implements CompanyService {
 	}
 
 	@Override
-	public String DeleteCompanyDetails(String companyCode) {
+	public String deleteCompanyDetails(String companyCode) {
 		try {
-			Optional<Company> company =  companyRepository.findByCompanyCode(companyCode);
-			if (company.isPresent()) {
+			Optional<Company> company = companyRepository.findByCompanyCode(companyCode);
+			if (company.isPresent() && company.get().getCompanyCode().equalsIgnoreCase(companyCode)) {
 				companyRepository.delete(company.get());
 			} else {
-				log.info(this.getClass().getName(), "companyRegistration Company Code "+companyCode+" is not available Please provide valid Company Code");
-				return "There is no company available with the Company Code "+companyCode;
+				log.info(this.getClass().getName(), "companyRegistration Company Code " + companyCode
+						+ " is not available Please provide valid Company Code");
+				return "There is no company available with the Company Code " + companyCode;
 			}
-		}catch(Exception e) {
-			log.error("Exception occured while deleting the company : "+e.getStackTrace());
+		} catch (Exception e) {
+			log.error("Exception occured while deleting the company : " + e.getStackTrace());
 			return "Error occured while deleting the company! Please try again later";
 		}
 		return "Deleted Successfully";
