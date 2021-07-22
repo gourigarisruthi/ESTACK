@@ -1,0 +1,26 @@
+apiVersion: apps/v1  
+kind: Deployment  
+metadata:  
+  name: company-service-deployment  
+  labels:  
+    apps: company-service-deployment  
+spec:  
+  replicas: 1  
+  minReadySeconds: 15  
+  strategy:  
+    type: Recreate  
+  selector:  
+    matchLabels:  
+      app: company-service  
+  template:  
+    metadata:  
+      labels:  
+        app: company-service  
+    spec:  
+      containers:  
+         - name: company-service  
+           image: 895164885144.dkr.ecr.us-east-2.amazonaws.com/stockmarketcompany:TAG_ID
+           imagePullPolicy: IfNotPresent  
+           ports:  
+             - containerPort: 9001
+              

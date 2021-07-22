@@ -1,0 +1,15 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/ubuntu/companyservice
+permissions:
+  - object: /home/ubuntu/companyservice/
+    pattern: "**"
+    owner: ubuntu
+    group: ubuntu
+hooks:
+  AfterInstall:
+    - location: /start.sh
+      timeout: 900
+      runas: ubuntu

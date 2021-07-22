@@ -1,0 +1,25 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      java: corretto8
+      docker: 18
+  pre_build:
+    commands:
+    - echo "Company service pre-build phase"
+    - $(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION)
+    - TAG="$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | head -c 8)"
+  build:
+    commands:
+    - echo "Company service build phase"
+    - mvn clean install
+    - docker build --tag "895164885144.dkr.ecr.us-east-2.amazonaws.com/stockmarketcompany:${TAG}" .
+  post_build:
+    commands:
+    - echo "Event service post-build phase"
+    - docker push "895164885144.dkr.ecr.us-east-2.amazonaws.com/stockmarketcompany:${TAG}"
+    - cp ./event-deployment.yml event-deployment_temp.yml  
+    - sed -i s/TAG_ID/$TAG/g event-deployment_temp.yml
+artifacts:
+  files:
+   - '**/*'

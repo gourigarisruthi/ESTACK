@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.stockmarket</groupId>
-    <artifactId>e-stock-market</artifactId>
+    <artifactId>stock-market-company</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>e-stock-market</name>
     <description>E-Stock project for Certification</description>
